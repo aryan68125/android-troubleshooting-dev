@@ -237,3 +237,4 @@ Now as you can see there are some ui components like 2 EditText fileds and a but
             }
         });
 ```
+#### NOTE: ```alpha = 0.0f``` means the pixels of a view is transparent and ```alpha = 1.0f``` means the pixels of a view is opaque
