@@ -130,3 +130,22 @@
             }
         });
 ```
+# How to Hide a view using Java in the backend in an android app using a button
+### Java code to handle the hiding and showing of a view programatically using a button
+```
+ //now setting up an onclick listener for our floating button
+        messege_button = (FloatingActionButton) findViewById(R.id.messege_button);
+        messege_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(), "Messege button clicked", Toast.LENGTH_LONG).show();
+                if (loginlayout.getVisibility() == View.VISIBLE) {
+                    // Its visible
+                    loginlayout.setVisibility(View.GONE);
+                } else {
+                    // Either gone or invisible
+                    loginlayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+```
