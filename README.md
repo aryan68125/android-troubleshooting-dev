@@ -130,6 +130,24 @@
             }
         });
 ```
+Here login is the name of the xml file example : ``` login.xml ```.  
+This xml layout file was included in the main activity  
+example :  The code below shows how to include a layout xml file into your main activity
+```
+<include
+        android:id="@+id/login"
+        layout="@layout/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+```
+Now as you can see there are some ui components like 2 EditText fileds and a button. So now the question is how will you acess the ui components inside this layout view? The answer is simple ```Button button_login = (Button)loginlayout.findViewById(R.id.button);``` you just need to add the root layout on which the button is placed.
 # How to Hide a view using Java in the backend in an android app using a button
 ### Java code to handle the hiding and showing of a view programatically using a button
 ```
