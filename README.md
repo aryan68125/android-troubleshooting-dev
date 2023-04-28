@@ -151,7 +151,7 @@ Now as you can see there are some ui components like 2 EditText fileds and a but
 # How to Hide a view using Java in the backend in an android app using a button
 ### Java code to handle the hiding and showing of a view programatically using a button
 ```
- //now setting up an onclick listener for our floating button
+        //now setting up an onclick listener for our floating button
         messege_button = (FloatingActionButton) findViewById(R.id.messege_button);
         messege_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,10 +160,13 @@ Now as you can see there are some ui components like 2 EditText fileds and a but
                 if (loginlayout.getVisibility() == View.VISIBLE) {
                     // Its visible
                     loginlayout.setVisibility(View.GONE);
+                    chatlayout.setVisibility(View.VISIBLE);
                 } else {
                     // Either gone or invisible
                     loginlayout.setVisibility(View.VISIBLE);
+                    chatlayout.setVisibility(View.GONE);
                 }
+
             }
         });
 ```
