@@ -170,3 +170,70 @@ Now as you can see there are some ui components like 2 EditText fileds and a but
             }
         });
 ```
+### How to add animation when hiding or showing the view on a button click while using ```View.GONE or View.VISIBLE``` in the if else statement inside ```messege_button.setOnClickListener``` method 
+```
+        //now setting up an onclick listener for our floating button
+        messege_button = (FloatingActionButton) findViewById(R.id.messege_button);
+        messege_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(), "Messege button clicked", Toast.LENGTH_LONG).show();
+                if (loginlayout.getVisibility() == View.VISIBLE) {
+                    // Its visible
+                    //loginlayout.setVisibility(View.GONE);
+                    loginlayout.animate()
+                            .translationY(view.getHeight())
+                            .alpha(0.0f)
+                            .setDuration(300)
+                            .setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    super.onAnimationEnd(animation);
+                                    loginlayout.setVisibility(View.GONE);
+                                }
+                            });
+
+                    //chatlayout.setVisibility(View.VISIBLE);
+                    chatlayout.animate()
+                            .translationY(view.getHeight())
+                            .alpha(1.0f)
+                            .setDuration(300)
+                            .setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    super.onAnimationEnd(animation);
+                                    chatlayout.setVisibility(View.VISIBLE);
+                                }
+                            });
+                } else {
+                    // Either gone or invisible
+                    //loginlayout.setVisibility(View.VISIBLE);
+                    loginlayout.animate()
+                            .translationY(view.getHeight())
+                            .alpha(1.0f)
+                            .setDuration(300)
+                            .setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    super.onAnimationEnd(animation);
+                                    loginlayout.setVisibility(View.VISIBLE);
+                                }
+                            });
+
+                    //chatlayout.setVisibility(View.GONE);
+                    chatlayout.animate()
+                            .translationY(view.getHeight())
+                            .alpha(0.0f)
+                            .setDuration(300)
+                            .setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    super.onAnimationEnd(animation);
+                                    chatlayout.setVisibility(View.GONE);
+                                }
+                            });
+                }
+
+            }
+        });
+```
